@@ -1,0 +1,28 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.vscode/
+.DS_Store
+
+# Python build artifacts
+build/
+dist/
+*.egg-info/
+
+# Environment files
+.venv/
+.env
+
+# Data folders
+/data/raw/*
+!/data/raw/.gitkeep
+/data/processed/*
+!/data/processed/.gitkeep
+/data/output/*
+!/data/output/.gitkeep
+
+# DuckDB files
+*.duckdb
+*.wal

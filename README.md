@@ -1,98 +1,186 @@
-# GIS Starter Repo
+# GIS Python Starter
 
-A small starter repo for local geospatial development on macOS with:
+A lightweight starter repository for **modern GIS development with
+Python**.
 
-- Python
-- GeoPandas / Shapely / Rasterio
-- DuckDB + Spatial extension
-- GDAL CLI helpers
-- pytest
-- VS Code settings
+This project template provides a clean environment for building
+geospatial workflows using:
 
-## Project structure
+-   Python
+-   DuckDB Spatial
+-   GeoPandas
+-   GDAL
+-   SQL-based spatial analysis
 
-```text
-.
-├── data/
-│   ├── raw/
-│   ├── processed/
-│   └── output/
-├── sql/
-│   └── sample_query.sql
-├── src/
-│   └── gis_starter/
-│       ├── __init__.py
-│       ├── db.py
-│       ├── gdal_utils.py
-│       └── main.py
-├── tests/
-│   └── test_db.py
-├── .gitignore
-├── .python-version
-├── pyproject.toml
-├── requirements.txt
-└── README.md
-```
+It is designed for **local spatial analytics, ETL pipelines, and
+automation scripts**.
 
-## 1. Create or activate your environment
+------------------------------------------------------------------------
 
-If you already use `pyenv` and `pyenv-virtualenv`:
+## Features
 
-```bash
-pyenv activate myproject-env
-```
+-   Python package structure (`src/` layout)
+-   DuckDB + Spatial extension ready
+-   GeoPandas / Rasterio / Fiona stack
+-   SQL-based spatial queries
+-   pytest testing setup
+-   Makefile automation
+-   VS Code configuration
+-   pyenv-compatible environment
 
-Or create a dedicated env for this repo:
+------------------------------------------------------------------------
 
-```bash
-pyenv virtualenv 3.12.8 gis-starter-env
-cd gis_starter_repo
-pyenv local gis-starter-env
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
-```
+## Requirements
 
-## 2. Run the sample script
+Recommended environment:
 
-```bash
-python -m gis_starter.main
-```
+-   Python 3.12+
+-   pyenv
+-   Homebrew
+-   GDAL CLI tools
+
+Example setup:
+
+    brew install gdal
+
+------------------------------------------------------------------------
+
+## Project Setup
+
+Clone the repository:
+
+    git clone <repo-url>
+    cd <repo-name>
+
+Install the environment:
+
+    make setup
 
 This will:
 
-- open a DuckDB connection
-- load the `spatial` extension
-- create a sample point
-- print a tiny result table
+-   upgrade pip
+-   install the package in editable mode
+-   install dependencies
 
-## 3. Run tests
+------------------------------------------------------------------------
 
-```bash
-pytest
-```
+## Run the Starter Script
 
-## 4. Optional: install GDAL CLI on macOS
+    make run
 
-```bash
-brew install gdal
-```
+Expected output:
 
-Then you can use commands like:
+    DuckDB Spatial starter check
+    POINT (5.1214 52.0907)
 
-```bash
-gdalinfo your_raster.tif
-ogr2ogr -f GPKG output.gpkg input.shp
-```
+------------------------------------------------------------------------
 
-## 5. Typical workflow
+## Run Tests
 
-1. Put input data in `data/raw/`
-2. Use `gdal_utils.py` helpers or GDAL CLI to normalize/reproject
-3. Use `db.py` for DuckDB spatial SQL
-4. Write outputs to `data/processed/` or `data/output/`
+    make test
 
-## 6. Notes
+------------------------------------------------------------------------
 
-- `data/processed/` and `data/output/` are gitignored.
-- `data/raw/` is also gitignored by default because GIS files can be large. Remove that rule if you want to version small sample datasets.
-- DuckDB installs the spatial extension on first use if needed.
+## Code Quality
+
+Format code:
+
+    make format
+
+Lint code:
+
+    make lint
+
+------------------------------------------------------------------------
+
+## Project Structure
+
+    project/
+    │
+    ├── data/
+    │   ├── raw/
+    │   ├── processed/
+    │   └── output/
+    │
+    ├── sql/
+    │   └── spatial_queries.sql
+    │
+    ├── src/
+    │   └── gis_starter/
+    │       ├── db.py
+    │       ├── gdal_utils.py
+    │       └── main.py
+    │
+    ├── tests/
+    │
+    ├── Makefile
+    ├── pyproject.toml
+    ├── requirements.txt
+    └── README.md
+
+------------------------------------------------------------------------
+
+## GIS Stack
+
+This project uses a modern geospatial Python stack:
+
+  Package          Purpose
+  ---------------- -------------------------
+  GeoPandas        Vector spatial analysis
+  Shapely          Geometry operations
+  Rasterio         Raster processing
+  Fiona            Vector file IO
+  PyProj           Coordinate systems
+  DuckDB Spatial   Fast spatial SQL
+
+------------------------------------------------------------------------
+
+## Example Workflow
+
+Typical GIS pipeline using this repo:
+
+    Raw GIS files
+    ↓
+    GDAL conversion / reprojection
+    ↓
+    DuckDB spatial SQL analysis
+    ↓
+    Python automation
+    ↓
+    Export results
+
+------------------------------------------------------------------------
+
+## Creating New Projects
+
+This repository is designed to be used as a **GitHub template**.
+
+Create a new project by clicking:
+
+    Use this template
+
+Then:
+
+    git clone new-project
+    cd new-project
+    make setup
+
+Start building your spatial analysis pipeline.
+
+------------------------------------------------------------------------
+
+## Development Badges
+
+You can optionally add badges at the top of this README in GitHub:
+
+    ![Python](https://img.shields.io/badge/python-3.12-blue)
+    ![Tests](https://img.shields.io/badge/tests-pytest-green)
+    ![License](https://img.shields.io/badge/license-MIT-lightgrey)
+
+These give your repo a more professional look.
+
+------------------------------------------------------------------------
+
+## License
+
+MIT
